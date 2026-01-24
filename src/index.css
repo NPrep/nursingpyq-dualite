@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-text-main antialiased;
+  }
+  h1 {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-text-main;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl font-bold mb-4 text-primary mt-8 border-b-2 border-primary/20 pb-2;
+  }
+  h3 {
+    @apply text-xl font-semibold mb-3 text-text-main mt-6;
+  }
+  p {
+    @apply mb-4 leading-relaxed text-text-muted;
+  }
+  a {
+    @apply text-primary hover:underline decoration-primary/50 underline-offset-2;
+  }
+}
