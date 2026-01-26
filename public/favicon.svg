@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background: Rounded Square in Primary Yellow -->
+  <rect width="512" height="512" rx="120" fill="#EAB308"/>
+  
+  <!-- Icon: Medical Cross in White -->
+  <path d="M384 224H288V128c0-17.67-14.33-32-32-32s-32 14.33-32 32v96H128c-17.67 0-32 14.33-32 32s14.33 32 32 32h96v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96h96c17.67 0 32-14.33 32-32s-14.33-32-32-32z" fill="#ffffff"/>
+  
+  <!-- Subtle Inner Shadow/Detail for depth -->
+  <path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64zm0 352c-88.4 0-160-71.6-160-160S167.6 96 256 96s160 71.6 160 160-71.6 160-160 160z" fill="#ffffff" opacity="0.1"/>
+</svg>
