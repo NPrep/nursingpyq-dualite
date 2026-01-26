@@ -10,6 +10,8 @@ import Courses from './pages/Courses';
 import Exams from './pages/Exams';
 import SubjectTests from './pages/SubjectTests';
 import MockTests from './pages/MockTests';
+import BlogList from './pages/BlogList';
+import BlogPost from './pages/BlogPost';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
               <Route path="/exams" element={<Exams />} />
               <Route path="/subject-tests" element={<SubjectTests />} />
               <Route path="/mock-tests" element={<MockTests />} />
+              <Route path="/blog" element={<BlogList />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>

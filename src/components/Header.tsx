@@ -20,6 +20,7 @@ export default function Header() {
             <li><Link to="/exams" className="hover:text-primary transition-colors">Exams</Link></li>
             <li><Link to="/subject-tests" className="hover:text-primary transition-colors">Subject Tests</Link></li>
             <li><Link to="/mock-tests" className="hover:text-primary transition-colors">Mock Tests</Link></li>
+            <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
             <li><Link to="/nursing-courses" className="hover:text-primary transition-colors">Courses</Link></li>
           </ul>
         </nav>
@@ -42,6 +43,7 @@ export default function Header() {
             <li><Link to="/exams" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Exams</Link></li>
             <li><Link to="/subject-tests" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Subject Tests</Link></li>
             <li><Link to="/mock-tests" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Mock Tests</Link></li>
+            <li><Link to="/blog" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Blog</Link></li>
             <li><Link to="/nursing-courses" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Courses</Link></li>
           </ul>
         </nav>

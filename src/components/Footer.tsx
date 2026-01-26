@@ -27,7 +27,7 @@ export default function Footer() {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/nursing-courses">Nursing Courses</Link></li>
               <li><Link to="/exams">Upcoming Exams</Link></li>
-              <li><Link to="/subject-tests">Subject Tests</Link></li>
+              <li><Link to="/blog">Preparation Blog</Link></li>
               <li><Link to="/mock-tests">Mock Tests</Link></li>
             </ul>
           </div>
