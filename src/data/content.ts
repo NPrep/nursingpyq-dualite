@@ -1,16 +1,24 @@
 export const EXAMS = [
-  { id: 'aiims-norcet', name: 'AIIMS NORCET', label: 'AIIMS Nursing Officer Recruitment Common Eligibility Test' },
-  { id: 'rrb-staff-nurse', name: 'RRB Staff Nurse', label: 'Railway Recruitment Board Staff Nurse' },
-  { id: 'dsssb-nursing-officer', name: 'DSSSB Nursing Officer', label: 'Delhi Subordinate Services Selection Board' },
-  { id: 'esic-staff-nurse', name: 'ESIC Staff Nurse', label: 'Employees State Insurance Corporation' },
-  { id: 'nhm-cho', name: 'NHM / CHO', label: 'National Health Mission / Community Health Officer' },
-  { id: 'btsc-staff-nurse', name: 'BTSC Staff Nurse', label: 'Bihar Technical Service Commission' },
-  { id: 'sgpgi-nursing-officer', name: 'SGPGI Nursing Officer', label: 'Sanjay Gandhi Postgraduate Institute of Medical Sciences' },
-  { id: 'gmch-chandigarh', name: 'GMCH Chandigarh', label: 'Government Medical College & Hospital' },
-  { id: 'pgimer-chandigarh', name: 'PGIMER Chandigarh', label: 'Postgraduate Institute of Medical Education and Research' },
-  { id: 'pgims-rohtak', name: 'PGIMS Rohtak', label: 'Pandit Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences' },
-  { id: 'jipmer-nursing-officer', name: 'JIPMER Nursing Officer', label: 'Jawaharlal Institute of Postgraduate Medical Education & Research' },
-  { id: 'state-staff-nurse', name: 'State Staff Nurse', label: 'State Public Service Commissions' },
+  { id: 'aiims-norcet', name: 'AIIMS NORCET', label: 'AIIMS Nursing Officer Recruitment Common Eligibility Test', category: 'Central' },
+  { id: 'rrb-staff-nurse', name: 'RRB Staff Nurse', label: 'Railway Recruitment Board Staff Nurse', category: 'Central' },
+  { id: 'dsssb-nursing-officer', name: 'DSSSB Nursing Officer', label: 'Delhi Subordinate Services Selection Board', category: 'State' },
+  { id: 'esic-staff-nurse', name: 'ESIC Staff Nurse', label: 'Employees State Insurance Corporation', category: 'Central' },
+  { id: 'nhm-cho', name: 'NHM / CHO', label: 'National Health Mission / Community Health Officer', category: 'State' },
+  { id: 'btsc-staff-nurse', name: 'BTSC Staff Nurse', label: 'Bihar Technical Service Commission', category: 'State' },
+  { id: 'sgpgi-nursing-officer', name: 'SGPGI Nursing Officer', label: 'Sanjay Gandhi Postgraduate Institute of Medical Sciences', category: 'State' },
+  { id: 'gmch-chandigarh', name: 'GMCH Chandigarh', label: 'Government Medical College & Hospital', category: 'State' },
+  { id: 'pgimer-chandigarh', name: 'PGIMER Chandigarh', label: 'Postgraduate Institute of Medical Education and Research', category: 'Central' },
+  { id: 'pgims-rohtak', name: 'PGIMS Rohtak', label: 'Pandit Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences', category: 'State' },
+  { id: 'jipmer-nursing-officer', name: 'JIPMER Nursing Officer', label: 'Jawaharlal Institute of Postgraduate Medical Education & Research', category: 'Central' },
+  { id: 'state-staff-nurse', name: 'State Staff Nurse', label: 'State Public Service Commissions', category: 'State' },
+];
+
+export const LATEST_UPDATES = [
+  { title: "RRB Staff Nurse 2024 Shift-I Paper", examId: 'rrb-staff-nurse', date: "New" },
+  { title: "AIIMS NORCET 7 Prelims (Sep 2024)", examId: 'aiims-norcet', date: "New" },
+  { title: "BTSC Staff Nurse Paper 2025", examId: 'btsc-staff-nurse', date: "New" },
+  { title: "UPSC ESIC Nursing Officer (July 2024)", examId: 'esic-staff-nurse', date: "Recent" },
+  { title: "Rajasthan CHO 2024 Official Paper", examId: 'nhm-cho', date: "Recent" },
 ];
 
 export const TABLE_KEY_DETAILS = [

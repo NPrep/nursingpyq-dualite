@@ -4,189 +4,180 @@ import { Helmet } from 'react-helmet-async';
 import Table from '../components/Table';
 import { 
   TABLE_KEY_DETAILS, 
-  TABLE_ELIGIBILITY, 
-  TABLE_PATTERN, 
   UPCOMING_EXAMS_TEXT,
-  EXAMS 
+  LATEST_UPDATES
 } from '../data/content';
+import { ArrowRight, FileText, Calendar, BookOpen, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <Helmet>
         <title>Nursing Previous Year Questions – PYQs for All Nursing Exams in India</title>
         <meta name="description" content="Access Nursing Previous Year Questions (PYQs) for AIIMS NORCET, RRB Staff Nurse, DSSSB, ESIC, and State exams. The best source for nursing exam preparation." />
-        <meta name="keywords" content="nursing previous year questions, nursing exam pyq, staff nurse previous year papers, nursing officer pyq" />
       </Helmet>
 
-      <h1 className="text-3xl md:text-4xl font-bold text-black mb-8 leading-tight">
-        Nursing Previous Year Questions – PYQs for All Nursing Exams in India
-      </h1>
+      {/* Hero / Latest PYQs Section */}
+      <section className="mb-12">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight">
+            Nursing Previous Year Questions
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            The most reliable archive of memory-based papers for AIIMS NORCET, RRB, DSSSB, and State Nursing Exams.
+          </p>
+        </div>
 
-      {/* Importance of PYQs */}
-      <section className="bg-accent/30 p-6 border-l-4 border-primary mb-10">
-        <h2 className="!mt-0 !text-xl !mb-3 !border-none">Importance of Previous Year Questions</h2>
-        <p className="mb-2">
-          Previous Year Questions (PYQs) are widely considered the most reliable source for nursing exam preparation. 
-          They serve as a compass for aspirants, revealing the exact <strong>exam pattern</strong>, <strong>topic weightage</strong>, and the nature of questions asked by different recruiting bodies.
-        </p>
-        <p className="mb-0">
-          For both beginners and repeat aspirants, solving PYQs is non-negotiable. 
-          They highlight frequently repeated questions and help identify high-yield topics. 
-          In competitive Nursing Officer exams like AIIMS NORCET and RRB, where precision is key, mastering PYQs can significantly boost confidence and accuracy.
+        <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+          <div className="bg-primary/10 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+            <h2 className="text-lg font-bold text-gray-900 m-0 border-none flex items-center gap-2">
+              <FileText className="w-5 h-5 text-primary" />
+              Latest PYQs & Updates
+            </h2>
+            <Link to="/pyqs" className="text-sm font-semibold text-primary hover:underline flex items-center gap-1">
+              View All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="divide-y divide-gray-100">
+            {LATEST_UPDATES.map((update, idx) => (
+              <div key={idx} className="p-4 hover:bg-gray-50 flex items-center justify-between group transition-colors">
+                <div className="flex items-center gap-3">
+                  <span className={`text-xs font-bold px-2 py-1 rounded uppercase ${update.date === 'New' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                    {update.date}
+                  </span>
+                  <Link to={`/pyq/${update.examId}`} className="font-medium text-gray-800 group-hover:text-primary transition-colors">
+                    {update.title}
+                  </Link>
+                </div>
+                <Link to={`/pyq/${update.examId}`} className="text-gray-400 group-hover:text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Importance of PYQs (Kept brief) */}
+      <section className="bg-accent/50 p-6 rounded-lg border-l-4 border-primary mb-12">
+        <h2 className="!mt-0 !text-xl !mb-2 !border-none text-gray-900">Why Solve PYQs?</h2>
+        <p className="mb-0 text-gray-700">
+          Previous Year Questions are the blueprint of your exam. They reveal the <strong>exact difficulty level</strong>, <strong>repeated topics</strong>, and <strong>weightage</strong> of subjects like MSN and OBG. 
         </p>
       </section>
 
-      {/* Section 1: What is Nursing? */}
-      <section className="mb-10">
-        <h2>What is Nursing?</h2>
-        <p>
-          Nursing is a distinct and vital professional discipline within the healthcare sector, focused on the care of individuals, families, and communities. 
-          It serves as the backbone of healthcare systems worldwide, ensuring that patients maintain or recover optimal health and quality of life.
-        </p>
-        <p>
-          Nurses play a multifaceted role in hospitals, clinics, and community health centers. 
-          Their responsibilities extend far beyond basic care; they are tasked with patient monitoring, medication administration, assisting in complex clinical procedures, and providing essential health education to patients and their families.
-        </p>
-        <p>
-          The profession demands a unique blend of rigorous clinical knowledge, ethical integrity, effective communication skills, and profound compassion. 
-          From critical care units to rural health missions, nurses are often the first point of contact for patients, bridging the gap between doctors and the community. 
-          Nursing is not just a job; it is a commitment to preserving life and dignity.
-        </p>
+      {/* Syllabus & Admit Card Hub (Authority Links) */}
+      <div className="grid md:grid-cols-2 gap-8 mb-12">
+        {/* Syllabus Section */}
+        <section className="bg-white border border-gray-200 rounded-xl p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <BookOpen className="w-6 h-6 text-primary" />
+            <h2 className="!mt-0 !text-xl !mb-0 !border-none">Exam Syllabus</h2>
+          </div>
+          <p className="text-sm text-gray-500 mb-4">Detailed topic-wise syllabus breakdowns.</p>
+          <ul className="space-y-3">
+            <li>
+              <Link to="/blog/rrb-staff-nurse-syllabus-exam-pattern" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> RRB Staff Nurse Syllabus 2026
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog/aiims-norcet-2026-preparation-strategy" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> AIIMS NORCET Syllabus & Weightage
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog/dsssb-nursing-officer-strategy" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> DSSSB Section A & B Syllabus
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog/cho-exam-preparation-guide" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> NHM CHO (Community Health) Syllabus
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        {/* Admit Card / Official Updates Section */}
+        <section className="bg-white border border-gray-200 rounded-xl p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <ShieldCheck className="w-6 h-6 text-primary" />
+            <h2 className="!mt-0 !text-xl !mb-0 !border-none">Admit Cards & Updates</h2>
+          </div>
+          <p className="text-sm text-gray-500 mb-4">Check official updates and download links.</p>
+          <ul className="space-y-3">
+             <li>
+              <Link to="/pyq/rrb-staff-nurse" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> RRB Staff Nurse Admit Card Info
+              </Link>
+            </li>
+            <li>
+              <Link to="/pyq/aiims-norcet" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> AIIMS NORCET Admit Card Info
+              </Link>
+            </li>
+            <li>
+              <Link to="/pyq/esic-staff-nurse" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> ESIC Staff Nurse Updates
+              </Link>
+            </li>
+            <li>
+              <Link to="/pyq/dsssb-nursing-officer" className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium">
+                <ArrowRight className="w-4 h-4 text-gray-400" /> DSSSB Exam Dates & Admit Card
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      {/* UPCOMING EXAMS IN INDIA 2026 (Calendar Context) */}
+      <section className="mb-12">
+        <div className="flex items-center gap-2 mb-6 border-b border-gray-200 pb-2">
+          <Calendar className="w-6 h-6 text-primary" />
+          <h2 className="!mt-0 !mb-0 !border-none text-2xl">Upcoming Exams Calendar</h2>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">RRB Staff Nurse 2026</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.rrb}</p>
+            <Link to="/pyq/rrb-staff-nurse" className="text-sm font-bold underline decoration-primary/50">Get RRB PYQs &rarr;</Link>
+          </article>
+
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">AIIMS NORCET 2026</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.aiims}</p>
+            <Link to="/pyq/aiims-norcet" className="text-sm font-bold underline decoration-primary/50">Get NORCET PYQs &rarr;</Link>
+          </article>
+
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">DSSSB Staff Nurse</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.dsssb}</p>
+            <Link to="/pyq/dsssb-nursing-officer" className="text-sm font-bold underline decoration-primary/50">Get DSSSB PYQs &rarr;</Link>
+          </article>
+
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">ESIC Staff Nurse</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.esic}</p>
+            <Link to="/pyq/esic-staff-nurse" className="text-sm font-bold underline decoration-primary/50">Get ESIC PYQs &rarr;</Link>
+          </article>
+        </div>
+        
+        <div className="mt-6 text-center">
+           <Link to="/exams" className="inline-block px-6 py-2 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors">
+             View Full Exam Calendar
+           </Link>
+        </div>
       </section>
 
-      {/* Section 2: Nursing Exams 2026 */}
+      {/* Key Details Table (Kept for quick info) */}
       <section className="mb-10">
-        <h2>Nursing Exams 2026</h2>
-        <p>
-          The year 2026 is poised to be a significant year for nursing aspirants in India, with numerous opportunities opening up across central and state government sectors. 
-          Nursing exams are conducted at various levels, catering to different educational qualifications ranging from ANM and GNM to B.Sc. and M.Sc. Nursing.
-        </p>
-        <p>
-          These exams are the gateway to stable and prestigious careers as Nursing Officers, Staff Nurses, and Community Health Officers. 
-          Major recruitment drives are expected for positions in AIIMS, Railways (RRB), ESIC, and State Health Missions.
-        </p>
-        <p>
-          The core curriculum tested in these exams generally spans Anatomy, Physiology, Medical-Surgical Nursing, Pediatrics, and Obstetrics & Gynecology. 
-          However, the difficulty level varies significantly. 
-          This is where <strong>Nursing PYQs</strong> become essential. 
-          By analyzing papers from previous years, candidates can understand the evolving trends, the shift towards clinical-scenario based questions, and the specific demands of each examining authority.
-        </p>
-      </section>
-
-      {/* Section 3: Key Details Table */}
-      <section className="mb-10">
-        <h3>Nursing Exam 2026 – Key Details</h3>
+        <h3 className="text-lg font-bold mb-4">Exam Quick Reference</h3>
         <Table 
           headers={['Nursing Exam', 'Purpose', 'Subjects Focus']}
           rows={TABLE_KEY_DETAILS.map(item => [item.exam, item.purpose, item.focus])}
         />
-      </section>
-
-      {/* Section 4: Eligibility Table */}
-      <section className="mb-10">
-        <h3>Nursing Exams 2026 Eligibility</h3>
-        <p className="text-sm mb-4">
-          Eligibility criteria vary strictly based on the recruiting authority and the level of the post. Below is a general overview for major exams.
-        </p>
-        <Table 
-          headers={['Exam Name', 'Age Limit', 'Educational Qualification', 'Registration']}
-          rows={TABLE_ELIGIBILITY.map(item => [item.exam, item.age, item.qual, item.reg])}
-        />
-      </section>
-
-      {/* Section 5: Exam Pattern */}
-      <section className="mb-10">
-        <h3>Nursing Exams 2026 Exam Pattern</h3>
-        <p>
-          Most nursing exams follow an objective type (Multiple Choice Questions) format. 
-          Understanding the marking scheme, especially negative marking, is crucial. PYQs help decode these patterns clearly.
-        </p>
-        <Table 
-          headers={['Nursing Exam', 'Mode', 'Duration', 'Syllabus', 'Marking Scheme']}
-          rows={TABLE_PATTERN.map(item => [item.exam, item.mode, item.duration, item.syllabus, item.marking])}
-        />
-      </section>
-
-      {/* Section 6: Syllabus */}
-      <section className="mb-10">
-        <h2>Nursing Exams 2026 Syllabus</h2>
-        <p>
-          The syllabus for nursing exams is vast, covering the entire 4-year B.Sc Nursing or 3-year GNM curriculum. 
-          Core subjects include <strong>Medical-Surgical Nursing</strong>, <strong>Community Health Nursing</strong>, <strong>Pediatrics</strong>, <strong>Mental Health Nursing</strong>, and <strong>Midwifery</strong>.
-        </p>
-        <p>
-          Apart from technical subjects, many exams like DSSSB and RRB also test General Aptitude, Reasoning, and Language skills. 
-          Mapping the syllabus with PYQs allows students to prioritize high-weightage topics and avoid wasting time on low-yield areas.
-        </p>
-      </section>
-
-      {/* Section 7: Admit Card */}
-      <section className="mb-10">
-        <h2>Nursing Exams 2026 Admit Card</h2>
-        <p>
-          Admit cards are typically released 7-10 days before the examination date on the official websites of the respective conducting bodies. 
-          Candidates must download them using their registration number and password.
-        </p>
-        <p>
-          It is critical to verify all details such as name, roll number, exam center, and timing immediately after downloading. 
-          Any discrepancy should be reported to the authorities instantly to avoid last-minute panic.
-        </p>
-      </section>
-
-      {/* UPCOMING EXAMS IN INDIA 2026 */}
-      <section className="mb-12">
-        <h2 className="text-black border-b-0 mb-6">Upcoming Nursing Exams in India 2026</h2>
-        
-        <div className="space-y-8">
-          <article>
-            <h3 className="text-primary mt-0">RRB Staff Nurse Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.rrb}</p>
-            <Link to="/pyq/rrb-staff-nurse" className="text-sm font-semibold">View RRB Staff Nurse PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">AIIMS NORCET Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.aiims}</p>
-            <Link to="/pyq/aiims-norcet" className="text-sm font-semibold">View AIIMS NORCET PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">DSSSB Staff Nurse Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.dsssb}</p>
-            <Link to="/pyq/dsssb-nursing-officer" className="text-sm font-semibold">View DSSSB PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">JIPMER Nursing Officer Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.jipmer}</p>
-            <Link to="/pyq/jipmer-nursing-officer" className="text-sm font-semibold">View JIPMER PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">ESIC Staff Nurse Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.esic}</p>
-            <Link to="/pyq/esic-staff-nurse" className="text-sm font-semibold">View ESIC PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">OSSSC Nursing Officer Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.osssc}</p>
-            <Link to="/pyq/state-staff-nurse" className="text-sm font-semibold">View State Exam PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">NHM State CHO Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.nhm}</p>
-            <Link to="/pyq/nhm-cho" className="text-sm font-semibold">View NHM CHO PYQs &rarr;</Link>
-          </article>
-
-          <article>
-            <h3 className="text-primary">UPPSC / UPSSSC Staff Nurse Exam 2026</h3>
-            <p>{UPCOMING_EXAMS_TEXT.uppsc}</p>
-            <Link to="/pyq/state-staff-nurse" className="text-sm font-semibold">View UP State PYQs &rarr;</Link>
-          </article>
-        </div>
       </section>
     </div>
   );
