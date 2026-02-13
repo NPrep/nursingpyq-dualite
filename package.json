@@ -47,7 +47,25 @@
     "reactSnap":  {
                       "source":  "dist",
                       "include":  [
-                                      "/"
+                                      "/",
+                                      "/blog",
+                                      "/exams",
+                                      "/mock-tests",
+                                      "/nursing-courses",
+                                      "/pyq/aiims-norcet",
+                                      "/pyq/btsc-staff-nurse",
+                                      "/pyq/dsssb-nursing-officer",
+                                      "/pyq/esic-staff-nurse",
+                                      "/pyq/gmch-chandigarh",
+                                      "/pyq/jipmer-nursing-officer",
+                                      "/pyq/nhm-cho",
+                                      "/pyq/pgimer-chandigarh",
+                                      "/pyq/pgims-rohtak",
+                                      "/pyq/rrb-staff-nurse",
+                                      "/pyq/sgpgi-nursing-officer",
+                                      "/pyq/state-staff-nurse",
+                                      "/pyqs",
+                                      "/subject-tests"
                                   ],
                       "crawl":  true,
                       "inlineCss":  true,
