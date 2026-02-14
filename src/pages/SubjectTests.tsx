@@ -1,15 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { SUBJECT_TESTS } from '../data/content';
 import { FileText, ExternalLink } from 'lucide-react';
 
 export default function SubjectTests() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Helmet>
+      <Head>
         <title>Subject Wise Nursing Tests - MSN, OBG, CHN, Pedia</title>
         <meta name="description" content="Practice subject-wise nursing tests for MSN, OBG, CHN, Pediatrics, Psychiatry, and more. Boost your preparation with focused topic tests." />
-      </Helmet>
+      </Head>
 
       <h1 className="mb-2">Subject Wise Nursing Tests</h1>
       <p className="text-lg text-gray-600 mb-8">

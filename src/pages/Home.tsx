@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import Table from '../components/Table';
 import { 
   TABLE_KEY_DETAILS, 
@@ -12,10 +12,10 @@ import { ArrowRight, FileText, Calendar, BookOpen, ShieldCheck } from 'lucide-re
 export default function Home() {
   return (
     <div className="max-w-5xl mx-auto">
-      <Helmet>
+      <Head>
         <title>Nursing Previous Year Questions – PYQs for All Nursing Exams in India</title>
         <meta name="description" content="Access Nursing Previous Year Questions (PYQs) for AIIMS NORCET, RRB Staff Nurse, DSSSB, ESIC, and State exams. The best source for nursing exam preparation." />
-      </Helmet>
+      </Head>
 
       {/* Hero / Latest PYQs Section */}
       <section className="mb-12">

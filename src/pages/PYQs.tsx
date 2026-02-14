@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { EXAMS, EXAM_SPECIFIC_LINKS } from '../data/content';
 import { FileText, ExternalLink, FolderOpen, Filter } from 'lucide-react';
 
@@ -21,10 +21,10 @@ export default function PYQs() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Helmet>
+      <Head>
         <title>Nursing Previous Year Question Papers (PYQ) - All Exams</title>
         <meta name="description" content="Download Nursing Previous Year Questions for AIIMS NORCET, RRB, CHO, ESIC, DSSSB and more. Authentic memory-based papers." />
-      </Helmet>
+      </Head>
 
       <div className="mb-8">
         <h1 className="mb-3">Nursing Previous Year Question Papers</h1>

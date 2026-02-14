@@ -1,15 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { MOCK_TESTS } from '../data/content';
 import { Layout, ExternalLink } from 'lucide-react';
 
 export default function MockTests() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Helmet>
+      <Head>
         <title>Free Nursing Mock Tests - NORCET, AIIMS, RRB, KGMU</title>
         <meta name="description" content="Attempt free mock tests for AIIMS NORCET, RRB Staff Nurse, KGMU, SGPGI, and other nursing officer exams. Simulate the real exam experience." />
-      </Helmet>
+      </Head>
 
       <h1 className="mb-2">Nursing Exam Mock Tests</h1>
       <p className="text-lg text-gray-600 mb-8">

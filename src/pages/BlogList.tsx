@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { BLOG_POSTS } from '../data/blogs';
 import { Calendar, User, Clock, ArrowRight } from 'lucide-react';
 
 export default function BlogList() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Helmet>
+      <Head>
         <title>Nursing Exam Preparation Blog - Tips, Strategies & Guides</title>
         <meta name="description" content="Read expert articles on Nursing Exam preparation, study strategies, book reviews, and exam updates for AIIMS NORCET, RRB, and more." />
-      </Helmet>
+      </Head>
 
       <div className="text-center mb-12">
         <h1 className="mb-4">Nursing Exam Insights & Strategies</h1>

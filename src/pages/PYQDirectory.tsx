@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { EXAMS, EXAM_SPECIFIC_LINKS } from '../data/content';
 import { FileText, AlertCircle, ExternalLink } from 'lucide-react';
 
@@ -13,10 +13,10 @@ export default function PYQDirectory() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Helmet>
+      <Head>
         <title>{`${exam.name} Previous Year Questions (PYQ) - Download PDF`}</title>
         <meta name="description" content={`Download ${exam.name} Previous Year Questions. Subject wise and Year wise PYQs for ${exam.label}.`} />
-      </Helmet>
+      </Head>
 
       <div className="mb-8">
         <div className="text-sm breadcrumbs mb-4 text-gray-500">

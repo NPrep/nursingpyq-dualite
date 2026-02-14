@@ -1,15 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { COURSES_LIST } from '../data/content';
 import { CheckCircle, ExternalLink, Star } from 'lucide-react';
 
 export default function Courses() {
   return (
     <div className="max-w-5xl mx-auto">
-      <Helmet>
+      <Head>
         <title>Nursing Exam Courses - Gold Batch, Rapid Revision & Test Series</title>
         <meta name="description" content="Join our premium nursing courses: Gold Batch for complete theory, Rapid Revision 2.0 for quick prep, and Test Series for extensive practice." />
-      </Helmet>
+      </Head>
 
       <div className="text-center mb-12">
         <h1 className="mb-4">Premium Nursing Exam Preparation</h1>

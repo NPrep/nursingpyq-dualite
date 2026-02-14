@@ -1,15 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import { Link } from 'react-router-dom';
 import { EXAMS } from '../data/content';
 
 export default function Exams() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Helmet>
+      <Head>
         <title>List of Nursing Exams in India 2026</title>
         <meta name="description" content="Complete list of Nursing Exams in India for 2026. AIIMS, RRB, JIPMER, DSSSB, and State Nursing Officer exams." />
-      </Helmet>
+      </Head>
 
       <h1 className="mb-8">Nursing Exams in India</h1>
       

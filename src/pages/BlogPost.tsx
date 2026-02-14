@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -37,13 +37,13 @@ export default function BlogPost() {
 
   return (
     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
-      <Helmet>
+      <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:author" content={post.author} />
-      </Helmet>
+      </Head>
 
       {/* Sidebar / TOC */}
       <aside className="lg:w-1/4 order-2 lg:order-1">
