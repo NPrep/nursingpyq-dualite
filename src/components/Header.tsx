@@ -36,7 +36,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-white border-t border-gray-100 py-4 px-4">
+        <nav className="md:hidden nprep-mobile-drawer">
           <ul className="flex flex-col space-y-4 text-sm font-medium text-gray-600">
             <li><Link to="/" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
             <li><Link to="/pyqs" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>PYQs</Link></li>

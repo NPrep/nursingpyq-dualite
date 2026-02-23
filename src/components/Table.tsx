@@ -8,23 +8,23 @@ interface TableProps {
 
 export default function Table({ headers, rows, title }: TableProps) {
   return (
-    <div className="my-8 overflow-x-auto">
-      {title && <h4 className="text-lg font-semibold mb-2 text-gray-800">{title}</h4>}
-      <table className="w-full border-collapse text-sm text-left border border-gray-300">
-        <thead className="bg-primary text-white">
+    <div className="my-8 table-scroll overflow-x-auto rounded-[12px] border border-[var(--border)]">
+      {title && <h4 className="text-lg font-semibold mb-2 text-[var(--text-primary)] px-4 pt-4">{title}</h4>}
+      <table className="w-full border-separate border-spacing-0 text-sm text-left">
+        <thead>
           <tr>
             {headers.map((header, idx) => (
-              <th key={idx} className="px-4 py-3 font-semibold border-r border-yellow-600 last:border-r-0 whitespace-nowrap">
+              <th key={idx} className="bg-[var(--primary-dark)] px-4 py-3 font-semibold text-white whitespace-nowrap">
                 {header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="bg-white">
+        <tbody>
           {rows.map((row, rowIdx) => (
-            <tr key={rowIdx} className="border-b border-gray-200 hover:bg-gray-50">
+            <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white' : 'bg-[var(--bg-light)]'}>
               {row.map((cell, cellIdx) => (
-                <td key={cellIdx} className="px-4 py-3 border-r border-gray-200 last:border-r-0">
+                <td key={cellIdx} className="px-4 py-3 text-[var(--text-secondary)]">
                   {cell}
                 </td>
               ))}

@@ -251,6 +251,63 @@ export default function Home() {
           </section>
         </aside>
       </div>
+      {/* UPCOMING EXAMS IN INDIA 2026 (Calendar Context) */}
+      <section className="mb-12">
+        <div className="flex items-center gap-2 mb-6 border-b border-gray-200 pb-2">
+          <Calendar className="w-6 h-6 text-primary" />
+          <h2 className="!mt-0 !mb-0 !border-none text-2xl">Upcoming Exams Calendar</h2>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">RRB Staff Nurse 2026</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.rrb}</p>
+            <Link to="/pyq/rrb-staff-nurse" className="text-sm font-bold underline decoration-primary/50">Get RRB PYQs &rarr;</Link>
+          </article>
+
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">AIIMS NORCET 2026</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.aiims}</p>
+            <Link to="/pyq/aiims-norcet" className="text-sm font-bold underline decoration-primary/50">Get NORCET PYQs &rarr;</Link>
+          </article>
+
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">DSSSB Staff Nurse</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.dsssb}</p>
+            <Link to="/pyq/dsssb-nursing-officer" className="text-sm font-bold underline decoration-primary/50">Get DSSSB PYQs &rarr;</Link>
+          </article>
+
+          <article className="border border-gray-200 p-5 rounded-lg hover:border-primary transition-colors">
+            <h3 className="text-primary mt-0 text-lg">ESIC Staff Nurse</h3>
+            <p className="text-sm mb-3 line-clamp-2">{UPCOMING_EXAMS_TEXT.esic}</p>
+            <Link to="/pyq/esic-staff-nurse" className="text-sm font-bold underline decoration-primary/50">Get ESIC PYQs &rarr;</Link>
+          </article>
+        </div>
+        
+        <div className="mt-6 text-center">
+           <Link to="/exams" className="inline-block px-6 py-2 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors">
+             View Full Exam Calendar
+           </Link>
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <div className="nprep-testimonial-cta">
+          <h2 className="text-3xl font-semibold text-[var(--text-primary)]">Hear from real students</h2>
+          <a className="cta" href="https://nprep.in/blogs?filter=NORCET+Success+Story" target="_blank" rel="noopener noreferrer">
+            Read verified success stories on NPrep
+          </a>
+        </div>
+      </section>
+
+      {/* Key Details Table (Kept for quick info) */}
+      <section className="mb-10">
+        <h3 className="text-lg font-bold mb-4">Exam Quick Reference</h3>
+        <Table 
+          headers={['Nursing Exam', 'Purpose', 'Subjects Focus']}
+          rows={TABLE_KEY_DETAILS.map(item => [item.exam, item.purpose, item.focus])}
+        />
+      </section>
     </div>
   );
 }
