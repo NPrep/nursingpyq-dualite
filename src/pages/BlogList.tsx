@@ -29,7 +29,7 @@ export default function BlogList() {
                 </span>
                 <div className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
-                  {post.date}
+                  Originally published {post.date} • Verified for 2026 cycle
                 </div>
                 <div className="flex items-center gap-1">
                   <Clock className="w-4 h-4" />

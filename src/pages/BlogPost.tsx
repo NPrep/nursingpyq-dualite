@@ -97,7 +97,7 @@ export default function BlogPost() {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-gray-400" />
-              <span>{post.date}</span>
+              <span>Originally published {post.date} • Content verified for 2026 cycle</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-gray-400" />
