@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
               <Phone className="w-4 h-4 text-primary" />
-              <span>+91 6377 6391 69</span>
+              <a href="tel:+916377639169" className="hover:text-primary transition-colors">+91 6377 6391 69</a>
             </div>
           </div>
           
@@ -46,7 +46,7 @@ export default function Footer() {
         
         <div className="mt-12 pt-8 border-t border-gray-300 text-center">
           <div className="mb-6">
-            <p className="text-sm font-medium text-gray-600 mb-1">In association with</p>
+            <p className="text-sm font-medium text-gray-600 mb-1">In association with NPrep</p>
             <a 
               href="https://nprep.in" 
               target="_blank" 
@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
 
           <p className="text-sm text-gray-500 mb-2">&copy; {new Date().getFullYear()} NursingPYQ. All rights reserved.</p>
-          <p className="text-xs text-gray-400 max-w-2xl mx-auto">
+          <p className="nprep-disclaimer-banner text-xs text-gray-400 max-w-2xl mx-auto">
             Disclaimer: This website is not an official government portal. It is a help portal designed to assist aspirants with nursing exam preparation. 
             All information is for educational purposes only.
           </p>

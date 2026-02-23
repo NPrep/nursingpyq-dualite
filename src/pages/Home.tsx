@@ -171,6 +171,15 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mb-12">
+        <div className="nprep-testimonial-cta">
+          <h2 className="text-3xl font-semibold text-[var(--text-primary)]">Hear from real students</h2>
+          <a className="cta" href="https://nprep.in/blogs?filter=NORCET+Success+Story" target="_blank" rel="noopener noreferrer">
+            Read verified success stories on NPrep
+          </a>
+        </div>
+      </section>
+
       {/* Key Details Table (Kept for quick info) */}
       <section className="mb-10">
         <h3 className="text-lg font-bold mb-4">Exam Quick Reference</h3>
