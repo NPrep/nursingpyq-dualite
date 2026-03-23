@@ -5,7 +5,7 @@ import { SampleQuestionsBlock, NprepCtaBlock } from '../components/PyqPageExtras
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <Head>
         <title>Nursing Previous Year Questions (PYQ)</title>
         <meta name="description" content="Access previous year questions for major nursing exams across India." />
