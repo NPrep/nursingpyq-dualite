@@ -3,14 +3,14 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import PYQDirectory from './pages/PYQDirectory';
 import PYQs from './pages/PYQs';
-import Courses from './pages/Courses';
-import Exams from './pages/Exams';
-import SubjectTests from './pages/SubjectTests';
-import MockTests from './pages/MockTests';
-import BlogList from './pages/BlogList';
-import BlogPost from './pages/BlogPost';
+import NorcetPyq from './pages/NorcetPyq';
+import RrbNursingPyq from './pages/RrbNursingPyq';
+import EsicNursingPyq from './pages/EsicNursingPyq';
+import NhmNursingPyq from './pages/NhmNursingPyq';
+import YearWisePaperPage from './pages/YearWisePaperPage';
+import NursingPyqPdfDownload from './pages/NursingPyqPdfDownload';
+import NursingPyqWithAnswers from './pages/NursingPyqWithAnswers';
 import ScrollToTop from './components/ScrollToTop';
 import { RouterWrapper } from './next/RouterWrapper';
 
@@ -28,13 +28,24 @@ function App({ initialPath = '/' }: AppProps) {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pyqs" element={<PYQs />} />
-            <Route path="/pyq/:examId" element={<PYQDirectory />} />
-            <Route path="/nursing-courses" element={<Courses />} />
-            <Route path="/exams" element={<Exams />} />
-            <Route path="/subject-tests" element={<SubjectTests />} />
-            <Route path="/mock-tests" element={<MockTests />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/norcet-pyq" element={<NorcetPyq />} />
+            <Route path="/rrb-nursing-pyq" element={<RrbNursingPyq />} />
+            <Route path="/esic-nursing-pyq" element={<EsicNursingPyq />} />
+            <Route path="/nhm-nursing-pyq" element={<NhmNursingPyq />} />
+            <Route
+              path="/rrb-nursing-2024-question-paper"
+              element={<YearWisePaperPage title="RRB Nursing 2024 Question Paper" description="Download and review previous year questions." />}
+            />
+            <Route
+              path="/norcet-2024-question-paper"
+              element={<YearWisePaperPage title="NORCET 2024 Question Paper" description="Download and review previous year questions." />}
+            />
+            <Route
+              path="/esic-2023-question-paper"
+              element={<YearWisePaperPage title="ESIC 2023 Question Paper" description="Download and review previous year questions." />}
+            />
+            <Route path="/nursing-pyq-pdf-download" element={<NursingPyqPdfDownload />} />
+            <Route path="/nursing-pyq-with-answers" element={<NursingPyqWithAnswers />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
