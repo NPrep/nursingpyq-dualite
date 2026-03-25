@@ -2,16 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/norcet-pyq', label: 'NORCET PYQ' },
-  { to: '/rrb-nursing-pyq', label: 'RRB PYQ' },
-  { to: '/esic-nursing-pyq', label: 'ESIC PYQ' },
-  { to: '/nhm-nursing-pyq', label: 'NHM PYQ' },
-  { to: '/nursing-pyq-pdf-download', label: 'PYQ PDF' },
-  { to: '/nursing-pyq-with-answers', label: 'With Answers' },
-];
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,34 +11,40 @@ export default function Header() {
         <Link to="/" className="text-xl font-bold text-black tracking-tight hover:no-underline flex items-center">
           Nursing<span className="text-primary">PYQ</span>
         </Link>
-
+        
+        {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-6 text-sm font-medium text-gray-600">
-            {navLinks.map((item) => (
-              <li key={item.to}>
-                <Link to={item.to} className="hover:text-primary transition-colors">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+            <li><Link to="/pyqs" className="hover:text-primary transition-colors">PYQs</Link></li>
+            <li><Link to="/exams" className="hover:text-primary transition-colors">Exams</Link></li>
+            <li><Link to="/subject-tests" className="hover:text-primary transition-colors">Subject Tests</Link></li>
+            <li><Link to="/mock-tests" className="hover:text-primary transition-colors">Mock Tests</Link></li>
+            <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+            <li><Link to="/nursing-courses" className="hover:text-primary transition-colors">Courses</Link></li>
           </ul>
         </nav>
 
-        <button className="md:hidden p-2 text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden p-2 text-gray-600"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {isMenuOpen && (
         <nav className="md:hidden nprep-mobile-drawer">
           <ul className="flex flex-col space-y-4 text-sm font-medium text-gray-600">
-            {navLinks.map((item) => (
-              <li key={item.to}>
-                <Link to={item.to} className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            <li><Link to="/" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/pyqs" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>PYQs</Link></li>
+            <li><Link to="/exams" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Exams</Link></li>
+            <li><Link to="/subject-tests" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Subject Tests</Link></li>
+            <li><Link to="/mock-tests" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Mock Tests</Link></li>
+            <li><Link to="/blog" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Blog</Link></li>
+            <li><Link to="/nursing-courses" className="block hover:text-primary" onClick={() => setIsMenuOpen(false)}>Courses</Link></li>
           </ul>
         </nav>
       )}
