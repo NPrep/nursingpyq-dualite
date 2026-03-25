@@ -68,77 +68,137 @@ export default function Home() {
       <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] gap-8">
         <main>
           <section className="mb-12">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight">
-                Nursing Previous Year Questions
-              </h1>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-                A comprehensive collection of nursing exam previous year questions for AIIMS NORCET, RRB, DSSSB, ESIC, CHO, and state exams.
-              </p>
+            <div className="grid gap-8 xl:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
+              <div className="rounded-[28px] border border-amber-100 bg-gradient-to-br from-white via-white to-amber-50 p-6 shadow-sm md:p-8 lg:p-10">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-700">
+                  <ShieldCheck className="h-4 w-4" />
+                  Trusted PYQ hub for nursing exams
+                </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                {EXAM_FILTERS.map((filter) => (
-                  <button
-                    key={filter}
-                    type="button"
-                    onClick={() => setActiveFilter(filter)}
-                    className={`px-4 py-2 rounded-full border text-sm font-semibold transition-colors ${
-                      activeFilter === filter
-                        ? 'bg-primary text-white border-primary'
-                        : 'bg-white text-gray-700 border-gray-300 hover:border-primary hover:text-primary'
-                    }`}
+                <h1 className="mb-4 max-w-3xl text-4xl font-bold leading-[1.05] text-gray-950 md:text-6xl">
+                  Nursing Previous Year Questions
+                </h1>
+                <p className="mb-8 max-w-2xl text-lg text-gray-600 md:text-xl">
+                  Solve exam-level PYQs for AIIMS NORCET, RRB, DSSSB, ESIC, CHO, and state nursing exams from one clean revision dashboard.
+                </p>
+
+                <div className="mb-8 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    to="/pyqs"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white no-underline shadow-sm transition-colors hover:bg-primary/90"
                   >
-                    {filter}
-                  </button>
-                ))}
-              </div>
-            </div>
+                    Browse All PYQs
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    to="/exams"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 no-underline transition-colors hover:border-primary hover:text-primary"
+                  >
+                    Upcoming Exams
+                    <Calendar className="h-4 w-4" />
+                  </Link>
+                </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-              <div className="bg-primary/10 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-                <h2 className="text-lg font-bold text-gray-900 m-0 border-none flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary" />
-                  Latest PYQs & Updates
-                </h2>
-                <Link to="/pyqs" className="text-sm font-semibold text-primary hover:underline flex items-center gap-1">
-                  View All <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
-              <div className="p-4 space-y-4">
-                {Object.entries(groupedCards).map(([examType, cards], groupIndex) => (
-                  <details key={examType} open={groupIndex === 0} className="border border-gray-200 rounded-lg bg-gray-50/60">
-                    <summary className="list-none cursor-pointer px-4 py-3 flex items-center justify-between font-semibold text-gray-800">
-                      <span>{examType}</span>
-                      <ChevronDown className="w-4 h-4 text-gray-500" />
-                    </summary>
-                    <div className="p-3 grid gap-3 md:grid-cols-2">
-                      {cards.map((card) => (
-                        <article key={`${card.examId}-${card.title}`} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
-                          <div className="flex items-center justify-between gap-2 mb-2">
-                            <h3 className="text-base font-bold text-gray-900 m-0">{card.title}</h3>
-                            <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${card.status === 'New' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
-                              {card.status}
-                            </span>
-                          </div>
-                          <div className="text-sm text-gray-600 space-y-1 mb-3">
-                            <p className="mb-0"><strong>Year:</strong> {card.year}</p>
-                            <p className="mb-0"><strong>Shift:</strong> {card.shift ?? 'N/A'}</p>
-                            <p className="mb-0"><strong>Questions:</strong> {card.questionCount}</p>
-                            <p className="mb-0"><strong>Type:</strong> {card.paperType}</p>
-                            <p className="mb-0"><strong>Difficulty:</strong> {difficultyLabel(card.difficulty)}</p>
-                          </div>
-                          <Link
-                            to={`/pyq/${card.examId}`}
-                            className="inline-flex items-center gap-1 px-4 py-2 rounded-md bg-primary text-white text-sm font-semibold no-underline hover:bg-primary/90"
-                          >
-                            Solve <ArrowRight className="w-4 h-4" />
-                          </Link>
-                        </article>
-                      ))}
+                <div className="mb-8 grid gap-4 md:grid-cols-3">
+                  <div className="rounded-2xl border border-gray-200 bg-white p-4">
+                    <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                      <FileText className="h-4 w-4 text-primary" />
+                      Updated Papers
                     </div>
-                  </details>
-                ))}
+                    <p className="mb-0 text-sm text-gray-600">
+                      Year-wise and exam-wise PYQs arranged for fast solving.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-gray-200 bg-white p-4">
+                    <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                      <BookOpen className="h-4 w-4 text-primary" />
+                      Exam Coverage
+                    </div>
+                    <p className="mb-0 text-sm text-gray-600">
+                      NORCET, RRB, ESIC, DSSSB, CHO, and state nursing exams.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-gray-200 bg-white p-4">
+                    <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+                      <ShieldCheck className="h-4 w-4 text-primary" />
+                      Quick Revision
+                    </div>
+                    <p className="mb-0 text-sm text-gray-600">
+                      Filter by exam instantly and jump straight into the latest papers.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <p className="mb-0 text-sm font-semibold text-gray-900">Explore by exam</p>
+                    <p className="mb-0 text-xs uppercase tracking-wide text-gray-400">Quick filters</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {EXAM_FILTERS.map((filter) => (
+                      <button
+                        key={filter}
+                        type="button"
+                        onClick={() => setActiveFilter(filter)}
+                        className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                          activeFilter === filter
+                            ? 'border-primary bg-primary text-white'
+                            : 'border-gray-300 bg-white text-gray-700 hover:border-primary hover:text-primary'
+                        }`}
+                      >
+                        {filter}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
+                <div className="flex items-center justify-between border-b border-gray-100 bg-primary/10 px-6 py-4">
+                  <h2 className="m-0 flex items-center gap-2 border-none text-lg font-bold text-gray-900">
+                    <FileText className="h-5 w-5 text-primary" />
+                    Latest PYQs & Updates
+                  </h2>
+                  <Link to="/pyqs" className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                    View All <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+
+                <div className="space-y-4 p-4">
+                  {Object.entries(groupedCards).map(([examType, cards], groupIndex) => (
+                    <details key={examType} open={groupIndex === 0} className="rounded-lg border border-gray-200 bg-gray-50/60">
+                      <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-semibold text-gray-800">
+                        <span>{examType}</span>
+                        <ChevronDown className="h-4 w-4 text-gray-500" />
+                      </summary>
+                      <div className="grid gap-3 p-3 md:grid-cols-2">
+                        {cards.map((card) => (
+                          <article key={`${card.examId}-${card.title}`} className="rounded-lg border border-gray-200 bg-white p-4 transition-shadow hover:shadow-sm">
+                            <div className="mb-2 flex items-center justify-between gap-2">
+                              <h3 className="m-0 text-base font-bold text-gray-900">{card.title}</h3>
+                              <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${card.status === 'New' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
+                                {card.status}
+                              </span>
+                            </div>
+                            <div className="mb-3 space-y-1 text-sm text-gray-600">
+                              <p className="mb-0"><strong>Year:</strong> {card.year}</p>
+                              <p className="mb-0"><strong>Shift:</strong> {card.shift ?? 'N/A'}</p>
+                              <p className="mb-0"><strong>Questions:</strong> {card.questionCount}</p>
+                              <p className="mb-0"><strong>Type:</strong> {card.paperType}</p>
+                              <p className="mb-0"><strong>Difficulty:</strong> {difficultyLabel(card.difficulty)}</p>
+                            </div>
+                            <Link
+                              to={`/pyq/${card.examId}`}
+                              className="inline-flex items-center gap-1 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-primary/90"
+                            >
+                              Solve <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </article>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
