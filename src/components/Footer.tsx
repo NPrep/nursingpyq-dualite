@@ -15,9 +15,14 @@ export default function Footer() {
               We provide authentic, exam-oriented content for AIIMS NORCET, RRB, DSSSB, and State Nursing exams.
               Our mission is to simplify nursing exam preparation through structured past papers.
             </p>
-            <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
-              <Phone className="w-4 h-4 text-primary" />
-              <a href="tel:+916377639169" className="hover:text-primary transition-colors">+91 6377 6391 69</a>
+            <div>
+              <a
+                href="tel:+916377639169"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-primary/15 transition-colors hover:text-primary hover:ring-primary/40"
+              >
+                <Phone className="w-4 h-4 text-primary" />
+                <span>+91 6377 6391 69</span>
+              </a>
             </div>
           </div>
           
